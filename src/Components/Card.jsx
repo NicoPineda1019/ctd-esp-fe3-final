@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { ContextGlobal } from "./utils/global.context";
 
 
 const Card = ({ name, username, id }) => {
+  const {theme} = useContext(ContextGlobal)
+
   const navigate = useNavigate()
 
   const addFav = ()=>{
@@ -15,16 +18,16 @@ const Card = ({ name, username, id }) => {
   }
 
   return (
-    <div className="card">
+    <div className={`card ${theme.class}`}>
       <div className="link" onClick={() => navigate(`/dentist/${id}`)}>
-        <span>{id} - {name} - {username}</span>
+        <span className={`${theme.class}`}>{id} - {name} - {username}</span>
       </div>
         {/* En cada card deberan mostrar en name - username y el id */}
 
         {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
 
         {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="favButton">Add fav</button>
+        <button onClick={addFav} className={`favButton ${theme.class}`}>Add fav</button>
     </div>
   );
 };

@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { ContextGlobal } from '../Components/utils/global.context'
 
 const userByIdEndpoint = "https://jsonplaceholder.typicode.com/users/"
 
@@ -9,6 +10,7 @@ const userByIdEndpoint = "https://jsonplaceholder.typicode.com/users/"
 const Detail = () => {
   const {id} = useParams()
   const [dentist, setDentist] = useState({})
+  const {theme} = useContext(ContextGlobal)
 
   useEffect(() => {
     fetch(`${userByIdEndpoint}${id}`)
@@ -21,8 +23,8 @@ const Detail = () => {
 
   return (
     <>
-      <h1>Detail Dentist {id} </h1>
-      <div className='card' style={{textAlign: 'center', margin: 'auto'}}>
+      <h1 className={`${theme.class}`}>Detail Dentist {id} </h1>
+      <div className={`card ${theme.class}`} style={{textAlign: 'center', margin: 'auto'}}>
         <span>{dentist.name} - {dentist.email}</span>
         <span>{dentist.phone} - {dentist.website}</span>
       </div>

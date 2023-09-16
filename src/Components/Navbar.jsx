@@ -5,15 +5,15 @@ import { useNavigate } from 'react-router-dom'
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
-  const {handleChangeTheme} = useContext(ContextGlobal)
+  const {theme, handleChangeTheme} = useContext(ContextGlobal)
   const navigate = useNavigate()
 
   return (
-    <nav>
-      <button onClick={() => navigate('/home')}>Home</button>
-      <button onClick={() => navigate('/contact')}>Contacto</button>
-      <button onClick={() => navigate('/favs')}>Favoritos</button>
-      <button onClick={() => handleChangeTheme()}>Change theme</button>
+    <nav className={theme.class}>
+      <button className={theme.class} onClick={() => navigate('/Home')}>Home</button>
+      <button className={theme.class} onClick={() => navigate('/favs')}>Favoritos</button>
+      <button className={theme.class} onClick={() => navigate('/contact')}>Contacto</button>
+      <button className={theme.class} onClick={() => handleChangeTheme()}>Change theme</button>
     </nav>
   )
 }
