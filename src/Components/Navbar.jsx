@@ -10,6 +10,7 @@ const Navbar = () => {
 
   return (
     <nav className={theme.class}>
+      <div className='banner'></div>
       <button className={theme.class} onClick={() => navigate('/Home')}>Home</button>
       <button className={theme.class} onClick={() => navigate('/favs')}>Favoritos</button>
       <button className={theme.class} onClick={() => navigate('/contact')}>Contacto</button>

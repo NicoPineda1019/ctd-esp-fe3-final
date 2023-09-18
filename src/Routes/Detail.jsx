@@ -24,10 +24,20 @@ const Detail = () => {
   return (
     <>
       <h1 className={`${theme.class}`}>Detail Dentist {id} </h1>
-      <div className={`card ${theme.class}`} style={{textAlign: 'center', margin: 'auto'}}>
-        <span>{dentist.name} - {dentist.email}</span>
-        <span>{dentist.phone} - {dentist.website}</span>
-      </div>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Website</th>
+        </tr>
+        <tr>
+          <td>{dentist.name}</td>
+          <td>{dentist.email}</td>
+          <td>{dentist.phone}</td>
+          <td>{dentist.website}</td>
+        </tr>
+      </table>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
     </>
